@@ -1,0 +1,9 @@
+menu "Current Clamp"
+
+config CLAMP_WIFI_SSID
+	string "WiFi SSID"
+
+config CLAMP_WIFI_PASSWORD
+	string "WiFi Password"
+
+endmenu

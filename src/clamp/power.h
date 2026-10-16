@@ -33,10 +33,9 @@ public:
 	void start();
 
 private:
-	static constexpr const unsigned int SAMPLE_RATE_HZ = 48000;
-	static constexpr const unsigned int BUFFER_SIZE_B = SAMPLE_RATE_HZ * SOC_ADC_DIGI_DATA_BYTES_PER_CONV;
-	static constexpr const unsigned int FRAMES_PER_S = 5; /* 200ms: 10 cycles at 50Hz, 12 cycles at 60Hz */
-	static constexpr const unsigned int FRAME_SIZE_B = BUFFER_SIZE_B / FRAMES_PER_S;
+	static constexpr const unsigned int SAMPLE_RATE_HZ = 50000;
+	static constexpr const unsigned int BUFFER_SIZE_B = 10000 * SOC_ADC_DIGI_DATA_BYTES_PER_CONV;
+	static constexpr const unsigned int FRAME_SIZE_B = 2500 * SOC_ADC_DIGI_DATA_BYTES_PER_CONV; /* 100ms: 4 cycles at 50Hz */
 
 	static IRAM_ATTR bool adc_conv_done(adc_continuous_handle_t handle, const adc_continuous_evt_data_t *edata, void *user_data);
 

@@ -45,7 +45,7 @@ Power::Power(adc_channel_t current_ch) : WakeupThread("power", false) {
 	adc_digi_pattern_config_t adc_pattern[SOC_ADC_PATT_LEN_MAX]{{}};
 	adc_pattern[0].unit = ADC_UNIT_1;
 	adc_pattern[0].channel = current_ch;
-	adc_pattern[0].atten = ADC_ATTEN_DB_12;
+	adc_pattern[0].atten = ADC_ATTEN_DB_0;
 	adc_pattern[0].bit_width = ADC_BITWIDTH_12;
 	adc_config.pattern_num = 1;
 	adc_config.adc_pattern = adc_pattern;
@@ -54,7 +54,7 @@ Power::Power(adc_channel_t current_ch) : WakeupThread("power", false) {
 	adc_cali_curve_fitting_config_t cali_config{};
 	cali_config.unit_id = ADC_UNIT_1;
 	cali_config.chan = current_ch;
-	cali_config.atten = ADC_ATTEN_DB_12;
+	cali_config.atten = ADC_ATTEN_DB_0;
 	cali_config.bitwidth = ADC_BITWIDTH_12;
 	ESP_ERROR_CHECK(adc_cali_create_scheme_curve_fitting(&cali_config, &cali_));
 }
